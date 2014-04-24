@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- schema p 이용한 transaction 처리를 위한 설정 -->
+	<!-- <bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+		p:dataSource-ref="dataSource"></bean>
+	Annotation을 이용한 트랜젝션 설정
+	<tx:annotation-driven transaction-manager="transactionManager" /> -->
+	
+	
+	<!-- Annotation 을 위한 설정 -->
+	<context:component-scan base-package="ioedata"></context:component-scan>
+
+	<!-- fileupload 설정 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxUploadSize" value="-1"></property>
+	</bean>
+
+	<!-- download를 위한 설정 -->
+	<!-- <bean id="beanNameViewResolver"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver">
+		<property name="order" value="1"></property>
+	</bean> -->
+	<!-- download 처리 view : controller에서 jsp가 아닌 class 로 연결해 주기 위한 설정 -->
+	<!-- <bean name="downloadView" class="killer.board.util.DownloadView"></bean> -->
+	
+	<!-- Tiles 를 위한 설정 -->
+	<!-- <bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView"></property>
+		<property name="order" value="0"></property>
+	</bean>
+	<bean id="tilesConfig"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles/killer-home.xml</value>
+				<value>/WEB-INF/tiles/killer-admin.xml</value>
+				<value>/WEB-INF/tiles/killer-board.xml</value>
+				<value>/WEB-INF/tiles/killer-member.xml</value>
+				<value>/WEB-INF/tiles/killer-product.xml</value>
+				Tiles 설계 시 토론
+			</list>
+		</property>
+	</bean> -->
+	
+	<!-- ViewResolver 설정 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+		<property name="order" value="0"></property>
+	</bean>
+
+	<!-- AJAX 를 위한 설정 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"></bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Exception 처리 후 에러 페이지로 보내 줌 -->
+	<bean id=""
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.net.BindException">templates/errorPage</prop>
+				<prop key="killer.exception.RegisterUploadDeleteErrorException">templates/errorPage</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- Interceptor 를 위한 설정 -->
+	<!-- <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/buyProductPage.killer" />
+			<bean class="killer.deal.controller.LoginInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+
+	<!-- AOP 를 위한 설정 -->
+	<!-- <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	<bean id="log" class="killer.aop.KillerLogging"></bean> -->
+</beans>
+
+
+
+
+
+
+
+
+
+
