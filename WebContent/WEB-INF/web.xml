@@ -8,7 +8,6 @@
 	<!-- 앱 시작점 정의: index.jsp -->
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/view/index.jsp</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<!-- 모든 설정파일은 killer-*.xml 형식으로 감 Controller 계층: Annotation 기반 설정을 포함한 기본 
@@ -27,7 +26,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ioedata</servlet-name>
-		<url-pattern>*.ioedata</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	<!-- 한글 처리를 위한 filter 설정 -->

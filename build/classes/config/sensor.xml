@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"mybatis-3-mapper.dtd">
+
+<!-- namespace 를 mabatis 에선 필수로 해야 함!!! -->
+<mapper namespace="sensor">
+	<!-- <resultMap type="avo" id="adminRM">
+		<result property="adminId" column="admin_id" />
+		<result property="adminPassword" column="admin_password" />
+	</resultMap>
+	<select id="selectAdminByIdAndPassword" parameterType="avo" resultMap="adminRM">
+		select admin_id,admin_password from killadmin where admin_id=#{adminId} and admin_password=#{adminPassword}
+	</select>
+	<select id="selectCountByPassword" parameterType="avo" resultType="int">
+		select count(admin_id) from killadmin where admin_id=#{adminId} and admin_password=#{adminPassword}
+	</select> -->
+</mapper>
+ 
