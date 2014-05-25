@@ -1,9 +1,22 @@
 package ioedata.sensor.factory;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import ioedata.data.model.DataValue;
+
 /**
- * Define various sensors
- * Define sensor data collection time intervals
- * Perform data collection actions
+ * Define various sensors.
+ * Define sensor data collection time intervals.
+ * Perform data collection actions for both single collection and continuous collection.
  * @author ajou
  *
  */
@@ -41,14 +54,39 @@ public abstract class Sensor {
 	abstract int getSensorType();
 	
 	/*
-	 * Get sensor data with return type of Number and Number[]
+	 * Get sensor data with return type of Json String
 	 */
-	public Number subscribeSingleData(String deviceId, String deviceIp, int deviceIpPort, String sensorType){
-		
+	public JSONObject subscribeSingleJsonData(String deviceId, String deviceIp, int deviceIpPort, String sensorType){
+		//System.out.println("subscribe single "+deviceIp+" "+deviceIpPort);
+		String urlStr = "http://"+deviceIp+":"+deviceIpPort+"/sensorData/"+deviceId+"/"+sensorType;
+		//System.out.println(urlStr);
+		try {
+			URL url = new URL(urlStr);
+			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con.setRequestMethod("GET");
+			int resCode = con.getResponseCode();
+			if(resCode == 200){
+				String dataTimestamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(System.currentTimeMillis());
+				BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
+				if(br != null){
+					String response = br.readLine();
+					JSONObject json = new JSONObject(response);
+					json.put("sensorDataTimestamp", dataTimestamp);
+					return json;
+				}
+			}
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
-	public Number[] subscribeContinuousData(String deviceId, String deviceIp, int deviceIpPort, String sensorType, int dataCollectionInterval){
-		
+	
+	public JSONObject[] subscribeContinuousData(String deviceId, String deviceIp, int deviceIpPort, String sensorType, int dataCollectionInterval){
+		System.out.println("subscribe continuous");
 		return null;
 	}
 }

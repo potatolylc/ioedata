@@ -6,7 +6,7 @@ public interface DataService {
 	/*
 	 * Methods that are related to data access and manipulation with DB
 	 */
-	public DataValue retrieveData(String deviceId, String retrieveType);
+	public DataValue retrieveData(String deviceId, String sensorType, String retrieveType);
 	
 	/*
 	 * Methods that are related to data collection and control with Arduino

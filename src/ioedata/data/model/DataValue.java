@@ -1,5 +1,6 @@
 package ioedata.data.model;
 
+import ioedata.sensor.model.SensorTypeValue;
 import ioedata.sensor.model.SensorValue;
 
 import java.util.ArrayList;
@@ -13,31 +14,56 @@ import java.util.Date;
  */
 public final class DataValue {
 	private int sensorDataSerialNum;
+	private Object sensorDataValue;
 	private Date sensorDataTimestamp;
 	private String sensorDataTimestampStr;
-	private Object sensorDataValue;
 	private SensorValue sensorValue;
-	private String deviceId;
-	private ArrayList<DataValue> sensorDataArr;
 	public DataValue() {
 		super();
 	}
-	public DataValue(int sensorDataSerialNum, Date sensorDataTimestamp,
-			String sensorDataTimestampStr, Object sensorDataValue,
-			SensorValue sensorValue, String deviceId) {
+	public DataValue(Object sensorDataValue, String sensorDataTimestampStr,
+			SensorValue sensorValue) {
 		super();
-		this.sensorDataSerialNum = sensorDataSerialNum;
+		this.sensorDataValue = sensorDataValue;
+		this.sensorDataTimestampStr = sensorDataTimestampStr;
+		this.sensorValue = sensorValue;
+	}
+	public DataValue(Object sensorDataValue, Date sensorDataTimestamp,
+			String sensorDataTimestampStr, SensorValue sensorValue) {
+		super();
+		this.sensorDataValue = sensorDataValue;
 		this.sensorDataTimestamp = sensorDataTimestamp;
 		this.sensorDataTimestampStr = sensorDataTimestampStr;
+		this.sensorValue = sensorValue;
+	}
+	public DataValue(int sensorDataSerialNum, Object sensorDataValue,
+			SensorValue sensorValue) {
+		super();
+		this.sensorDataSerialNum = sensorDataSerialNum;
 		this.sensorDataValue = sensorDataValue;
 		this.sensorValue = sensorValue;
-		this.deviceId = deviceId;
+	}
+	public DataValue(int sensorDataSerialNum, Object sensorDataValue,
+			Date sensorDataTimestamp, String sensorDataTimestampStr,
+			SensorValue sensorValue) {
+		super();
+		this.sensorDataSerialNum = sensorDataSerialNum;
+		this.sensorDataValue = sensorDataValue;
+		this.sensorDataTimestamp = sensorDataTimestamp;
+		this.sensorDataTimestampStr = sensorDataTimestampStr;
+		this.sensorValue = sensorValue;
 	}
 	public int getSensorDataSerialNum() {
 		return sensorDataSerialNum;
 	}
 	public void setSensorDataSerialNum(int sensorDataSerialNum) {
 		this.sensorDataSerialNum = sensorDataSerialNum;
+	}
+	public Object getSensorDataValue() {
+		return sensorDataValue;
+	}
+	public void setSensorDataValue(Object sensorDataValue) {
+		this.sensorDataValue = sensorDataValue;
 	}
 	public Date getSensorDataTimestamp() {
 		return sensorDataTimestamp;
@@ -51,41 +77,20 @@ public final class DataValue {
 	public void setSensorDataTimestampStr(String sensorDataTimestampStr) {
 		this.sensorDataTimestampStr = sensorDataTimestampStr;
 	}
-	public Object getSensorDataValue() {
-		return sensorDataValue;
-	}
-	public void setSensorDataValue(Object sensorDataValue) {
-		this.sensorDataValue = sensorDataValue;
-	}
 	public SensorValue getSensorValue() {
 		return sensorValue;
 	}
 	public void setSensorValue(SensorValue sensorValue) {
 		this.sensorValue = sensorValue;
 	}
-	public String getDeviceId() {
-		return deviceId;
-	}
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
-	}
-	public ArrayList<DataValue> getSensorDataArr() {
-		return sensorDataArr;
-	}
-	public void setSensorDataArr(ArrayList<DataValue> sensorDataArr) {
-		this.sensorDataArr = sensorDataArr;
-	}
 	@Override
 	public String toString() {
 		return "DataValue [sensorDataSerialNum=" + sensorDataSerialNum
+				+ ", sensorDataValue=" + sensorDataValue
 				+ ", sensorDataTimestamp=" + sensorDataTimestamp
 				+ ", sensorDataTimestampStr=" + sensorDataTimestampStr
-				+ ", sensorDataValue=" + sensorDataValue + ", sensorValue="
-				+ sensorValue + ", deviceId=" + deviceId + ", sensorDataArr="
-				+ sensorDataArr + "]";
+				+ ", sensorValue=" + sensorValue + "]";
 	}
-
-	
 	
 }
 

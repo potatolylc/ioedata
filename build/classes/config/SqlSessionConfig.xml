@@ -9,11 +9,13 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="ioedata.data.model.DataValue" alias="datavo"/>
 		<typeAlias type="ioedata.device.model.DeviceValue" alias="devicevo"/>
 		<typeAlias type="ioedata.sensor.model.SensorValue" alias="sensorvo"/>
+		<typeAlias type="ioedata.sensor.model.SensorTypeValue" alias="sensortypevo"/>
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="config/sensor.xml"></mapper>
+		<mapper resource="config/device.xml"></mapper>
 		<mapper resource="config/data.xml"></mapper>
+		<mapper resource="config/sensor.xml"></mapper>
 	</mappers>
 </configuration>
 

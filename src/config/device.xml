@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"mybatis-3-mapper.dtd">
+
+<!-- namespace 를 mabatis 에선 필수로 해야 함!!! -->
+<mapper namespace="device">
+	<resultMap type="devicevo" id="deviceRM">
+		<result property="deviceSerialNum" column="device_serial_num" />
+		<result property="deviceIp" column="device_ip" />
+		<result property="deviceIpPort" column="device_ip_port" />
+		<result property="deviceId" column="device_id" />
+		<result property="devicePassword" column="device_password" />
+	</resultMap>
+	
+	<select id="getBasicDeviceInfoByDeviceId" parameterType="string" resultMap="deviceRM">
+		select device_serial_num, device_ip, device_ip_port, device_id
+		from IOEENDDEVICE
+		where device_id = #{deviceId}
+	</select>
+</mapper>
+ 

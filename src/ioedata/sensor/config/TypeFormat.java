@@ -4,7 +4,7 @@ import ioedata.sensor.factory.Sensor;
 
 
 public class TypeFormat {
-	public static int sensorTypeFormat(String sensorType){
+	public static int sensorTypeUrlFormat(String sensorType){
 		int sensorTypeNum = -1;
 		if(sensorType.equals("all")){
 			sensorTypeNum = Sensor.TYPE_ALL;
@@ -36,6 +36,37 @@ public class TypeFormat {
 			sensorTypeNum = Sensor.TYPE_TOUCH;
 		}
 		return sensorTypeNum;
+	}
+	
+	public static String sensorTypeResponseJsonKeyFormat(String sensorType){
+		if(sensorType.equals("ANALOG_SOUND")){
+			return "anasound";
+		} else if(sensorType.equals("DUST")){
+			return "dust";
+		} else if(sensorType.equals("FLAME")){
+			return "flame";
+		} else if(sensorType.equals("HUMIDITY")){
+			return "humidity";
+		} else if(sensorType.equals("LIGHT_BRIGHTNESS")){
+			return "brightness";
+		} else if(sensorType.equals("RAINDROP")){
+			return "raindrop";
+		} else if(sensorType.equals("TEMPERATURE_CELSIUS")){
+			return "ctemp";
+		} else if(sensorType.equals("TEMPERATURE_FAHRENHEIT")){
+			return "ftemp";
+		} else if(sensorType.equals("ACCELEROMETER")){
+			return "accelerometer";
+		} else if(sensorType.equals("DIGITAL_TILT")){
+			return "digitilt";
+		} else if(sensorType.equals("DIGITAL_VIBRATION")){
+			return "digivibration";
+		} else if(sensorType.equals("INFRARED_MOTION")){
+			return "infrared";
+		} else if(sensorType.equals("TOUCH")){
+			return "touch";
+		}
+		return null;
 	}
 	
 	public static int dataCollectionIntervalFormat(String dataCollectionIntervalType){
