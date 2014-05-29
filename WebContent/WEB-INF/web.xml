@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>ioedata</display-name>
+
+	<!-- 앱 시작점 정의: index.jsp -->
+	<welcome-file-list>
+		<welcome-file>/WEB-INF/view/index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- 모든 설정파일은 killer-*.xml 형식으로 감 Controller 계층: Annotation 기반 설정을 포함한 기본 
+		설정 - killer-dispatcher.xml Service 및 Dao 계층: XML 기반 - killer-business.xml 
+		DB 계층: killer-db.xml -->
+	<!-- servlet 을 생성하기 위하여 spring library 안에 있는 DispatcherServlet 클래스로 만든다. -->
+	<servlet>
+		<servlet-name>ioedata</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+              /WEB-INF/ioedata-*.xml
+          </param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ioedata</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- 한글 처리를 위한 filter 설정 -->
+	<filter>
+		<filter-name>encodeFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodeFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>
