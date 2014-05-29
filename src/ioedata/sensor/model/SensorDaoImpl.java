@@ -27,26 +27,4 @@ public class SensorDaoImpl implements SensorDao {
 	public int insertSensor(SensorValue sensorVal) throws Exception {
 		return this.template.insert("sensor.insertSensor", sensorVal);
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

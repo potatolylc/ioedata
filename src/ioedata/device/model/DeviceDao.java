@@ -28,25 +28,3 @@ public interface DeviceDao {
 	 */
 	public int getDeviceCountByDeviceIdAndDeviceIpAndDevicePassword(DeviceValue deviceVal) throws Exception;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

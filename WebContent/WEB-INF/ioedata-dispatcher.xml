@@ -17,7 +17,6 @@
 	<!-- Annotation을 이용한 트랜젝션 설정 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
-	
 	<!-- Annotation 을 위한 설정 -->
 	<context:component-scan base-package="ioedata"></context:component-scan>
 

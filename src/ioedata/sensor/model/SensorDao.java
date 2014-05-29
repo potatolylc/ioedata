@@ -5,7 +5,6 @@ import java.util.List;
 /**
  * This interface provides methods to access and manipulate database about sensors.
  * @author ajou
- *
  */
 public interface SensorDao {
 	/*

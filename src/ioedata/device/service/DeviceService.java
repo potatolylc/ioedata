@@ -35,18 +35,3 @@ public interface DeviceService {
 	 */
 	public int deviceAuthentication(DeviceValue deviceVal) throws Exception;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

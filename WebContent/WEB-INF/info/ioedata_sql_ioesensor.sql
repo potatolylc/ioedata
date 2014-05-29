@@ -13,7 +13,6 @@ values(seq_ioesensor.nextVal, 'outsideHome', 2, sysdate);
 insert into IOESENSOR(sensor_serial_num, device_id, sensor_type_num, sensor_timestamp) 
 values(seq_ioesensor.nextVal, 'outsideHome', 4, sysdate);
 
-
 select sensor_serial_num, device_id, sensor_type_num, sensor_type
 from(
 	select sensor.sensor_serial_num, sensor.device_id, sensor.sensor_type_num, sensortype.sensor_type
@@ -22,4 +21,3 @@ from(
 	order by sensor.sensor_serial_num asc
 )
 where device_id='outsideHome' and sensor.sensor_type_num=7;
-

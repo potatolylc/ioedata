@@ -18,13 +18,3 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="config/sensor.xml"></mapper>
 	</mappers>
 </configuration>
-
-
-
-
-
-
-
-
-
-

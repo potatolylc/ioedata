@@ -4,6 +4,10 @@ import java.util.Date;
 
 import ioedata.device.model.DeviceValue;
 
+/**
+ * This class creates data transport objects that contain the sensors' information. 
+ * @author ajou
+ */
 public class SensorValue {
 	private int sensorSerialNum;
 	private Date sensorTimestamp;
@@ -48,6 +52,7 @@ public class SensorValue {
 		this.deviceValue = deviceValue;
 		this.sensorTypeValue = sensorTypeValue;
 	}
+	
 	public int getSensorSerialNum() {
 		return sensorSerialNum;
 	}
@@ -78,6 +83,7 @@ public class SensorValue {
 	public void setSensorTypeValue(SensorTypeValue sensorTypeValue) {
 		this.sensorTypeValue = sensorTypeValue;
 	}
+	
 	@Override
 	public String toString() {
 		return "SensorValue [sensorSerialNum=" + sensorSerialNum

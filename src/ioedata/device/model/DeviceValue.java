@@ -6,7 +6,6 @@ import java.util.Date;
  * This class creates data transport objects that contain the devices' information,
  * such as the IP address, device ID and password of various devices. 
  * @author ajou
- *
  */
 public class DeviceValue {
 	private int deviceSerialNum;
@@ -94,6 +93,7 @@ public class DeviceValue {
 	public void setDeviceTimestampStr(String deviceTimestampStr) {
 		this.deviceTimestampStr = deviceTimestampStr;
 	}
+	
 	@Override
 	public String toString() {
 		return "DeviceValue [deviceSerialNum=" + deviceSerialNum

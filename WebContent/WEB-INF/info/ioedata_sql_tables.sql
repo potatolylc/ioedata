@@ -60,24 +60,3 @@ increment by 1
 minvalue 1
 nocache;
 drop sequence seq_ioesensordata;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

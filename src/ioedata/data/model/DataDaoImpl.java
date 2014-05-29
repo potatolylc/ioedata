@@ -53,30 +53,4 @@ public class DataDaoImpl implements DataDao {
 			throws Exception {
 		return this.template.selectOne("data.getLeastDataByDeviceIdAndSensorType", sensorVal);
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

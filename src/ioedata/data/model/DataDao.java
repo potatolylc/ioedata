@@ -34,26 +34,4 @@ public interface DataDao {
 	 * Get the least data value of a specific sensor type.
 	 */
 	public DataValue getLeastDataByDeviceIdAndSensorType(SensorValue sensorVal) throws Exception;
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

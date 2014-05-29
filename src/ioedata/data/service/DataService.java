@@ -3,12 +3,10 @@ package ioedata.data.service;
 import java.util.List;
 
 import ioedata.data.model.DataValue;
-import ioedata.sensor.model.SensorValue;
 
 /**
  * This interface provides methods to both access and manipulate data in the sensor database and collect and control sensor end devices.
  * @author ajou
- *
  */
 public interface DataService {
 	/**
@@ -31,7 +29,6 @@ public interface DataService {
 	 */
 	public int insertSensorData(DataValue dataVal) throws Exception;
 	
-	
 	/**
 	 * Methods that are related to data collection and control with Arduino
 	 */
@@ -40,22 +37,3 @@ public interface DataService {
 	 */
 	public boolean collectData(String deviceId, String sensorType, String dataCollectionIntervalType) throws Exception;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

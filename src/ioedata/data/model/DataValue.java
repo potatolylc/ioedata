@@ -1,16 +1,13 @@
 package ioedata.data.model;
 
-import ioedata.sensor.model.SensorTypeValue;
 import ioedata.sensor.model.SensorValue;
 
-import java.util.ArrayList;
 import java.util.Date;
 /**
  * This class creates data transport objects that contain the sensor data timestamp,
  * the raw data from sensors and the respective sensor information.
  * Also, it can contain an array data information to represent a list of the past raw sensor data.
  * @author ajou
- *
  */
 public final class DataValue {
 	private int sensorDataSerialNum;
@@ -19,6 +16,7 @@ public final class DataValue {
 	private String sensorDataTimestampStr;
 	private SensorValue sensorValue;
 	private TimeValue timeValue;
+	
 	public DataValue() {
 		super();
 	}
@@ -70,6 +68,7 @@ public final class DataValue {
 		this.sensorValue = sensorValue;
 		this.timeValue = timeValue;
 	}
+	
 	public int getSensorDataSerialNum() {
 		return sensorDataSerialNum;
 	}
@@ -106,6 +105,7 @@ public final class DataValue {
 	public void setTimeValue(TimeValue timeValue) {
 		this.timeValue = timeValue;
 	}
+
 	@Override
 	public String toString() {
 		return "DataValue [sensorDataSerialNum=" + sensorDataSerialNum
@@ -115,43 +115,4 @@ public final class DataValue {
 				+ ", sensorValue=" + sensorValue + ", timeValue=" + timeValue
 				+ "]";
 	}
-	
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

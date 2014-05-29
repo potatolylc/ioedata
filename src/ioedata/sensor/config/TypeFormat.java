@@ -2,7 +2,6 @@ package ioedata.sensor.config;
 
 import ioedata.sensor.factory.Sensor;
 
-
 public class TypeFormat {
 	public static int sensorTypeUrlFormat(String sensorType){
 		int sensorTypeNum = -1;

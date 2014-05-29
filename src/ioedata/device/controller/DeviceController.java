@@ -60,22 +60,5 @@ public class DeviceController {
 			e.printStackTrace();
 		}
 		return new JSONObject().put("result", flag).put("message", msg).toString();
-	}
-	
+	}	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

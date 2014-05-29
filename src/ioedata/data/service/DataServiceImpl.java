@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +24,6 @@ import ioedata.sensor.service.SensorService;
  * This class provides services about sensor data.
  * It implements DataService interface.
  * @author ajou
- *
  */
 @Service
 public class DataServiceImpl implements DataService {
@@ -45,7 +43,7 @@ public class DataServiceImpl implements DataService {
 	public int insertSensorData(DataValue dataVal) throws Exception {
 		return this.dataDao.insertSensorData(dataVal);
 	}
-
+	
 	/*
 	 * Analyze sensor types and retrieve types, and take actions according to different retrieve types.
 	 * If retrieve type comes in as "latest" and sensor type as "all", it means to retrieve the latest one data value set
@@ -96,6 +94,7 @@ public class DataServiceImpl implements DataService {
 		SensorValue sensorVal = new SensorValue(new DeviceValue(deviceId), new SensorTypeValue(sensorTypeNum));
 		return this.dataDao.getGreatestDataByDeviceIdAndSensorType(sensorVal);
 	}
+	
 	/*
 	 * Retrieve the trough data value of a specific sensor type on a specific device
 	 */
@@ -103,7 +102,6 @@ public class DataServiceImpl implements DataService {
 		SensorValue sensorVal = new SensorValue(new DeviceValue(deviceId), new SensorTypeValue(sensorTypeNum));
 		return this.dataDao.getLeastDataByDeviceIdAndSensorType(sensorVal);
 	}
-	
 	
 	@Override
 	public List<DataValue> retrieveDataList(String deviceId, String sensorType,
@@ -139,9 +137,6 @@ public class DataServiceImpl implements DataService {
 		}
 		return null;
 	}
-	
-	
-
 	
 	/**
 	 * Methods about data collection or control with Arduino
@@ -203,25 +198,4 @@ public class DataServiceImpl implements DataService {
 			flag = true;
 		return flag;
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

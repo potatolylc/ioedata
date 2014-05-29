@@ -1,4 +1,5 @@
 package ioedata.sensor.model;
+
 /**
  * This class create data transport object that contain the sensor type number, 
  * sensor type and the unit of the data created from the respective sensor. 
@@ -22,6 +23,7 @@ public class SensorTypeValue {
 		this.sensorType = sensorType;
 		this.unit = unit;
 	}
+	
 	public int getSensorTypeNum() {
 		return sensorTypeNum;
 	}
@@ -40,6 +42,7 @@ public class SensorTypeValue {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
+	
 	@Override
 	public String toString() {
 		return "SensorTypeValue [sensorTypeNum=" + sensorTypeNum

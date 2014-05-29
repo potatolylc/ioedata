@@ -19,7 +19,6 @@ values(seq_ioesensordata.nextVal, 456, sysdate, 2);
 insert into IOESENSORDATA(sensor_data_serial_num, sensor_data_value, sensor_data_timestamp, sensor_serial_num)
 values(seq_ioesensordata.nextVal, 257, sysdate, 2);
 
-
 -- getLastDataByDeviceIdSortedByTimestamp
 select sensor_data_serial_num, sensor_data_value, 
 		sensor_data_timestamp, sensorDataTimestampStr, 
@@ -105,14 +104,3 @@ from(
 		order by data.sensor_data_value asc
 )
 where device_id='outsideHome' and ROWNUM=1;
-
-
-
-
-
-
-
-
-
-
-

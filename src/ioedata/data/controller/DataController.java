@@ -10,6 +10,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.json.JSONArray;
+
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,18 +23,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * such as triggering or pausing sensor data collection, data retrieval from sensor database 
  * or sensor data analysis 
  * @author ajou
- *
  */
 @Controller
 @RequestMapping(value = "/data")
 public class DataController {
 	@Resource(name = "dataServiceImpl")
 	private DataService dataService;
-	
+
 	@RequestMapping(value = "/retrieve/{deviceId}/{sensorType}/{retrieveType}", method = RequestMethod.GET)
 	@ResponseBody
 	public String retrieveData(@PathVariable("deviceId") String deviceId, @PathVariable("sensorType") String sensorType, @PathVariable("retrieveType") String retrieveType) throws UnknownHostException, IOException {
-		System.out.println("retrieveData: "+deviceId+" "+retrieveType);
+		System.out.println("retrieveDataeee: "+deviceId+" "+retrieveType);
 		DataValue dataVal;
 		JSONObject json = new JSONObject();
 		try {
@@ -127,21 +127,4 @@ public class DataController {
 		}
 		return jsonArr;
 	}
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

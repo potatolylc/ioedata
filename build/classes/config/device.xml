@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="deviceId" column="device_id" />
 		<result property="devicePassword" column="device_password" />
 	</resultMap>
-	
+
 	<!-- insert device information into database -->
 	<insert id="insertDevice" parameterType="devicevo">
 	    <selectKey keyProperty="deviceSerialNum" resultType="int" order="BEFORE">
@@ -46,27 +46,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    select count(*) from IOEENDDEVICE
 		where device_ip = #{deviceIp}
 	</select>
-	
 </mapper>
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

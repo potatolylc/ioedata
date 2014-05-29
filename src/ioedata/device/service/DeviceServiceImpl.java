@@ -45,10 +45,6 @@ public class DeviceServiceImpl implements DeviceService {
 
 	@Override
 	public int deviceAuthentication(DeviceValue deviceVal) throws Exception {
-		// TODO Auto-generated method stub
 		return this.deviceDao.getDeviceCountByDeviceIdAndDeviceIpAndDevicePassword(deviceVal);
 	}
-
-	 
-
 }

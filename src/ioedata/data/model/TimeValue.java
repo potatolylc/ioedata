@@ -4,13 +4,13 @@ package ioedata.data.model;
  * This class holds the start time and end time String information 
  * for retrieving sensor data during a specific time interval.
  * @author ajou
- *
  */
 public class TimeValue {
 	private String startDate;
 	private String endDate;
 	private String startTime;
 	private String endTime;
+	
 	public TimeValue() {
 		super();
 	}
@@ -27,6 +27,7 @@ public class TimeValue {
 		this.startTime = startTime;
 		this.endTime = endTime;
 	}
+	
 	public String getStartDate() {
 		return startDate;
 	}
@@ -51,10 +52,10 @@ public class TimeValue {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
+	
 	@Override
 	public String toString() {
 		return "TimeValue [startDate=" + startDate + ", endDate=" + endDate
 				+ ", startTime=" + startTime + ", endTime=" + endTime + "]";
 	}
-	
 }

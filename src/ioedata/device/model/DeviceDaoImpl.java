@@ -35,18 +35,4 @@ public class DeviceDaoImpl implements DeviceDao {
 			DeviceValue deviceVal) throws Exception {
 		return this.template.selectOne("device.getDeviceCountByDeviceIdAndDeviceIpAndDevicePassword", deviceVal);
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
